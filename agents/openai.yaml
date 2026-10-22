@@ -1,4 +1,4 @@
 interface:
   display_name: "My Writing Skill · 내 글의 기준"
-  short_description: "내 점수와 이유로 글쓰기 지침과 미감을 다듬는 스킬"
-  default_prompt: "내 초안의 뜻과 말투를 살려 후보 하나를 보여줘. 내가 0·1·2점과 이유를 남기면, 다음 지침과 eval 질문으로 옮기고 다른 문단에서 다시 확인하자."
+  short_description: "한 문단의 점수와 이유로 나만의 글쓰기 스킬을 만드는 도구"
+  default_prompt: "$my-writing-skill로 초안 한 문단부터 같이 다듬자. 내가 점수와 이유를 남기면, 확인한 기준으로 내 스킬을 만들고 다른 문단에서도 확인하자."

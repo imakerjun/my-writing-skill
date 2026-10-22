@@ -21,7 +21,20 @@ def sentences(text):
                 result.append((p_id, value))
     return result
 
-def analyze(text):
+def validate_config(config):
+    if not isinstance(config, dict):
+        raise ValueError('점검 설정은 watch·preserve 목록을 가진 JSON 객체여야 합니다.')
+    for field in ['watch', 'preserve']:
+        values = config.get(field, [])
+        if not isinstance(values, list) or any(not isinstance(v, str) or not v.strip() for v in values):
+            raise ValueError(f'{field}에는 비어 있지 않은 문자열 목록을 적어주세요.')
+    return config
+
+
+def analyze(text, config=None):
+    config = validate_config(config) if config is not None else None
+    candidates = list(dict.fromkeys(config.get('watch', []))) if config is not None else CANDIDATES
+    preserve = list(dict.fromkeys(config.get('preserve', []))) if config is not None else []
     rows = []
     terms = defaultdict(list)
     starts = Counter()
@@ -33,7 +46,8 @@ def analyze(text):
         row['leading_connective'] = lead.group(1) if lead else None
         if lead:
             connectives.append({'sentence': index, 'expression': lead.group(1)})
-        row['expression_candidates'] = [term for term in CANDIDATES if term in sentence]
+        row['expression_candidates'] = [term for term in candidates if term in sentence]
+        row['preserve_candidates'] = [term for term in preserve if term in sentence]
         for token in re.findall(r'[가-힣A-Za-z0-9]+', sentence):
             terms[token].append(index)
         starts[tokens[0] if tokens else ''] += 1
@@ -48,14 +62,20 @@ def analyze(text):
         'connectives': connectives,
         'repeated_surface_tokens': [{'token': token, 'count': len(locations), 'sentences': locations} for token, locations in sorted(terms.items(), key=lambda item: (-len(item[1]), item[0])) if len(locations) >= 3],
         'sentences': rows,
+        'custom_checks': config,
     }
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('input', type=Path)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--config', type=Path, help='개인 점검어 watch·보존 참고어 preserve JSON')
     args = parser.parse_args()
-    report = analyze(args.input.read_text(encoding='utf-8'))
+    try:
+        config = json.loads(args.config.read_text(encoding='utf-8')) if args.config else None
+        report = analyze(args.input.read_text(encoding='utf-8'), config)
+    except (ValueError, OSError) as error:
+        parser.error(str(error))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     s = report['summary']

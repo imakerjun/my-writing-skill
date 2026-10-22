@@ -4,6 +4,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import re
 from pathlib import Path
 import subprocess
 import tempfile
@@ -29,6 +30,8 @@ def main():
     reference = (ROOT/'references/review-signals.md').read_text()
     measurement = (ROOT/'references/signals.md').read_text()
     manifest = {'started_at_utc':dt.datetime.now(dt.timezone.utc).isoformat(),
+                'skill_version':re.search(r'version: "([^"]+)"',skill).group(1),
+                'scope':'text-only revision of three public fictional fixtures; not personal-skill workflow or human aesthetic validation',
                 'skill_sha256':digest((ROOT/'SKILL.md').read_bytes()),
                 'grader_sha256':digest((ROOT/'scripts/grade.py').read_bytes()),
                 'command':command, 'withheld':['expected.json','grade.py','program-fixtures/'],

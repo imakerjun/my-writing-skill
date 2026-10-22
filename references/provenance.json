@@ -5,7 +5,7 @@
     "grader": "ccd4caf99f162fe84b4b0c220f788fb52a9f8846dc1cd7745920487fa65f6dc0",
     "analyzer": "4405c2c9bc8457c29ef86d6fc81ae54042f61f6ed01ab40105eb909394d58c2e"
   },
-  "public_version": "0.2.0",
-  "model_eval_status": "v0.1.0 has real runs; v0.2.0 personalization changes not model-evaluated",
-  "program_tests": "See tests/test_tools.py; program fixtures are not model outputs"
+  "public_version": "0.3.0",
+  "model_eval_status": "v0.1.0 has real successful runs; v0.3.0 attempted but blocked by CLI login before model response",
+  "program_tests": "19 tests passed; tests/test_tools.py and tests/test_workspace.py; fixtures are not model outputs"
 }

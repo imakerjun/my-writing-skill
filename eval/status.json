@@ -1,11 +1,19 @@
 {
-  "public_skill_version": "0.2.0",
+  "public_skill_version": "0.3.0",
   "model_evals_run": false,
-  "latest_run": "results/2026-10-22-r62-text-only/manifest.json",
+  "latest_attempt": "results/2026-10-22-v030-attempt/manifest.json",
+  "latest_attempt_status": "blocked_before_model_response",
+  "latest_successful_run": "results/2026-10-22-r62-text-only/manifest.json",
+  "evaluated_skill_version": "0.1.0",
   "model": "claude-fable-5-1",
   "cases_run": 3,
   "program_checks_passed_cases": 3,
   "author_evaluation": null,
-  "meaning": "보존된 최근 모델 실행은 v0.1.0의 공개 가상 예문 3건이며 프로그램 검사 3/3 통과다. 현재 v0.2.0의 개인 기준 축적 변경에 대한 새 모델 실행은 아직 없다. 저자 미감 평가는 별도다.",
-  "evaluated_skill_version": "0.1.0"
+  "program_tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "tests": 19,
+    "passed": 19,
+    "scope": "code contracts, personal-skill generation and relocation, installers, grading fixtures; not model quality"
+  },
+  "meaning": "v0.3.0 새 모델 실행은 Claude CLI 미로그인으로 응답을 받지 못했다. 보존한 성공 모델 실행은 v0.1.0 가상 예문 3건이다. v0.3.0 프로그램 검사 19건은 통과했다. 개인 지침의 새 문단 적용·실제 미감 평가는 별도다."
 }

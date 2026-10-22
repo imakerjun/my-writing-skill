@@ -1,0 +1,50 @@
+{
+  "started_at_utc": "2026-10-22T07:20:01.480462+00:00",
+  "skill_version": "0.3.0",
+  "scope": "text-only revision of three public fictional fixtures; not personal-skill workflow or human aesthetic validation",
+  "skill_sha256": "2d201a7081b9da7c8e2c181c644c4d897ce3940933152a594dfaf220c8f46652",
+  "grader_sha256": "0c030bb783800c9bc272272a5b9edcdab4be93451d7969d3e158aa6f9cf8c853",
+  "command": [
+    "claude",
+    "-p",
+    "--safe-mode",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "withheld": [
+    "expected.json",
+    "grade.py",
+    "program-fixtures/"
+  ],
+  "author_evaluation": null,
+  "cases": [
+    {
+      "case": "01-repetition",
+      "process_exit_code": 1,
+      "prompt_sha256": "1230a4a49f0566c56954bd325a5f01140b11757d929e992cb30964be3c15b749",
+      "grade_exit_code": null,
+      "error": "모델 실행 실패. 자동채점을 건너뜁니다."
+    },
+    {
+      "case": "02-preserve",
+      "process_exit_code": 1,
+      "prompt_sha256": "c15cb0e1c4cc416893bfc820f0519f2550f94e84810c421be01bf48a0b627440",
+      "grade_exit_code": null,
+      "error": "모델 실행 실패. 자동채점을 건너뜁니다."
+    },
+    {
+      "case": "03-causality",
+      "process_exit_code": 1,
+      "prompt_sha256": "cd1b9b319ec56e5c9d9c80da3f33a74b473516e6328cd926297d51231d5ad19f",
+      "grade_exit_code": null,
+      "error": "모델 실행 실패. 자동채점을 건너뜁니다."
+    }
+  ],
+  "completed_at_utc": "2026-10-22T07:20:12.754815+00:00",
+  "outcome": "blocked_before_model_response",
+  "blocker": "Claude CLI is not logged in. No model output or PASS was produced."
+}
