@@ -26,6 +26,14 @@ class Tools(unittest.TestCase):
             with self.subTest(case=case.name):
                 r=run('scripts/grade.py',case,ROOT/'eval/program-fixtures'/(case.name+'.md'));self.assertEqual(r.returncode,0,r.stdout+r.stderr)
 
+    def test_incomplete_or_error_response_cannot_pass(self):
+        for response in ['Not logged in · Please run /login', '<invoke name="Bash">ls</invoke>', '먼저 파일을 확인하겠습니다.']:
+            with self.subTest(response=response),tempfile.TemporaryDirectory() as d:
+                p=Path(d)/'response.md';p.write_text(response)
+                r=run('scripts/grade.py','eval/cases/03-causality',p)
+                self.assertNotEqual(r.returncode,0)
+                self.assertIn('format',r.stdout)
+
     def test_trap_in_log_is_not_preserved_in_body(self):
         with tempfile.TemporaryDirectory()as d:
             p=Path(d)/'response.md';p.write_text('## 수정본\n\n식물과 도구가 있다.\n\n## 변경 기록\n\n| 유형 | before | after | 이유 | 상태 |\n|---|---|---|---|---|\n| 위치 | 그 자리에는 | 식물과 도구 | 삭제 | 적용 |\n')

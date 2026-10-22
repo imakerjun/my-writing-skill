@@ -1,0 +1,8 @@
+=== 01-repetition — 01-repetition.md [propose 모드] ===
+[탐지] recall 0/1 = 0.00 (기준 1.0) FAIL
+  - 놓침 p1: “처음 열어 처음으로” (겹말)
+[분별] trap 미등장 t1 — PASS
+[형식] 검토표 행 0건 — 표 없음(형식 위반?)
+[문체] after 존댓말 전환 없음 — PASS
+[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.
+결과: 요확인/실패 → recall, format

@@ -73,7 +73,7 @@ python3 scripts/grade.py eval/cases/01-repetition local/eval-run/01.md
 python3 -m unittest discover -s tests -v
 ```
 
-프로그램은 문제 표현·보존 표현·변경 기록을 검사합니다. 문맥과 자연스러움, 저자의 채택은 별도입니다. **프로그램 테스트 PASS는 스킬의 글쓰기 효과를 검증했다는 뜻이 아닙니다.** 새 공개판의 모델 eval은 아직 실행 전이며 [상태 파일](eval/status.json)에 구분해 두었습니다.
+프로그램은 문제 표현·보존 표현·변경 기록을 검사합니다. 문맥과 자연스러움, 저자의 채택은 별도입니다. **프로그램 테스트 PASS는 스킬의 글쓰기 효과를 검증했다는 뜻이 아닙니다.** 2026-10-22에 실제 모델로 세 사례를 실행했고 자동검사 3/3을 통과했습니다. 저자의 미감 점수는 아직 받지 않았습니다. [실행 기록](eval/results/2026-10-22-r62-text-only/manifest.json)과 [상태 파일](eval/status.json)에 모델·입력·출력·검사 범위를 남겼습니다.
 
 ## 포함 범위
 

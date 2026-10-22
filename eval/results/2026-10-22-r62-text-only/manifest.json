@@ -1,0 +1,133 @@
+{
+  "run_id": "2026-10-22-r62-text-only",
+  "started_at_utc": "2026-10-22T04:08:52.741085+00:00",
+  "skill_version": "0.1.0",
+  "skill_sha256": "ab932eec7e7e5b4155ccf01b21c46a002983bf15d3ffa105f05942e09a13487a",
+  "cli_version": "2.1.303 (Claude Code)",
+  "command": [
+    "claude",
+    "-p",
+    "--safe-mode",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "blind_inputs": [
+    "SKILL.md",
+    "references/review-signals.md",
+    "references/signals.md",
+    "case input.md"
+  ],
+  "withheld": [
+    "expected.json",
+    "grade.py",
+    "program-fixtures/"
+  ],
+  "cases": [
+    {
+      "case": "01-repetition",
+      "started_at_utc": "2026-10-22T04:08:52.763303+00:00",
+      "completed_at_utc": "2026-10-22T04:09:22.216088+00:00",
+      "input_sha256": "ebd70b4890d97e050a1d47e8f41f037f616811f6205dade49fcec0f8d3a4ff52",
+      "prompt_sha256": "949893a49c0eaa05818f3380d39ab84048fb4142d9a4f5b8c12e1faf4ba44e56",
+      "response_sha256": "0b60c17832861e76411334ffe4049fc8f3bffe20a0acbaee88e0c5c6d158cc13",
+      "model_usage": {
+        "claude-fable-5-1": {
+          "inputTokens": 2,
+          "outputTokens": 2015,
+          "cacheReadInputTokens": 5328,
+          "cacheCreationInputTokens": 4369,
+          "webSearchRequests": 0,
+          "costUSD": 0.18948199999999998,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "thinkingTokens": 1521,
+          "canonicalModel": "claude-fable-5-1",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "is_error": false,
+      "process_exit_code": 0,
+      "grade_exit_code": 0,
+      "result": "입력된 두 문장을 스킬의 적용·보존·보류 기준으로 읽고, 후보 하나와 변경 기록을 남깁니다.\n\n## 수정본\n\n이번 회의를 처음 연 자리에 담당자들이 모였다. 결정 사항은 팀 문서에 남겼다.\n\n## 변경 기록\n\n| 유형 | before | after | 이유 | 상태 |\n|---|---|---|---|---|\n| 겹말 | 이번 회의를 처음 열어 처음으로 연 자리에 | 이번 회의를 처음 연 자리에 | '처음 열어'와 '처음으로 연'이 같은 뜻을 두 번 말한다. 하나만 남겨도 첫 회의라는 사실과 담당자들이 모였다는 내용은 그대로다. | 적용 |\n\n적용 1건, 보류 0건.\n\n'연 자리'는 점검 후보 표현이지만 실제로 연 회의를 가리키므로 보존했다. 둘째 문장은 사실과 문체를 유지했고 고칠 이유가 없어 손대지 않았다.\n\n정리하면, 겹말 한 곳만 줄이고 뜻·사실·평서체는 그대로 두었다. 요청대로 코드 분석은 생략했고 원문 파일은 수정하지 않았다. 이 후보에 대한 0·1·2점과 근거 구절은 저자가 남기면 된다.",
+      "grader_output": "=== 01-repetition — 01-repetition.md [apply 모드] ===\n[탐지] 잡음 1/1 = 1.00 (적용 1 · 보류 0) (기준 1.0) PASS\n[분별] trap 보존 t1 — PASS\n[형식] 변경 기록 1행 (적용 1 · 보류 0)\n[문체] 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 프로그램 채점 전부 PASS\n",
+      "raw_file": "01-repetition.raw.json",
+      "rechecked_grade_exit_code": 0,
+      "rechecked_grader_output": "=== 01-repetition — 01-repetition.md [apply 모드] ===\n[탐지] 잡음 1/1 = 1.00 (적용 1 · 보류 0) (기준 1.0) PASS\n[분별] trap 보존 t1 — PASS\n[형식] 변경 기록 1행 (적용 1 · 보류 0)\n[문체] 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 프로그램 채점 전부 PASS\n"
+    },
+    {
+      "case": "02-preserve",
+      "started_at_utc": "2026-10-22T04:09:22.219298+00:00",
+      "completed_at_utc": "2026-10-22T04:09:42.886142+00:00",
+      "input_sha256": "4a84af7dc6c9157fe7ae0c97da4fc60882ec7bad224c27627de06d5c25600915",
+      "prompt_sha256": "81c1b3245decdf60c7e1c19a429754767e50807b31539906c7f878ecb75a8272",
+      "response_sha256": "0a5774526625af48d425b774438eaed09fa00412e54dadf68227f85921a1076a",
+      "model_usage": {
+        "claude-fable-5-1": {
+          "inputTokens": 2,
+          "outputTokens": 1106,
+          "cacheReadInputTokens": 5328,
+          "cacheCreationInputTokens": 4357,
+          "webSearchRequests": 0,
+          "costUSD": 0.143792,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "thinkingTokens": 761,
+          "canonicalModel": "claude-fable-5-1",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "is_error": false,
+      "process_exit_code": 0,
+      "grade_exit_code": 0,
+      "result": "주어진 두 문장을 review-signals 기준으로 문맥 점검하고, 변경 여부를 정리하겠습니다. 코드 분석은 안내대로 생략합니다.\n\n## 수정본\n\n회의실 창가에는 식물이 놓여 있다. 그 자리에는 작은 물뿌리개도 있다.\n\n## 변경 기록\n\n| 유형 | before | after | 이유 | 상태 |\n|---|---|---|---|---|\n\n적용 0건, 보류 0건\n\n점검 후보 중 \"그 자리\"가 \"~하는 자리\" 신호와 표면이 겹치지만, 여기서는 창가라는 실제 장소를 가리키므로 보존했습니다. \"~도\"는 단독 사용이라 대구 반복에 해당하지 않습니다.\n\n원문은 그대로 두었고, 바꿀 표현이 없어 수정본은 원문과 같습니다. 점수(0·1·2)와 이유는 저자가 직접 남기면 기록합니다.",
+      "grader_output": "=== 02-preserve — 02-preserve.md [apply 모드] ===\n[분별] trap 보존 t1 — PASS\n[형식] 변경 기록 0행 (적용 0 · 보류 0) — 원문 동일·변경 없음 명시 PASS\n[문체] 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 프로그램 채점 전부 PASS\n",
+      "raw_file": "02-preserve.raw.json",
+      "rechecked_grade_exit_code": 0,
+      "rechecked_grader_output": "=== 02-preserve — 02-preserve.md [apply 모드] ===\n[분별] trap 보존 t1 — PASS\n[형식] 변경 기록 0행 (적용 0 · 보류 0) — 원문 동일·변경 없음 명시 PASS\n[문체] 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 프로그램 채점 전부 PASS\n"
+    },
+    {
+      "case": "03-causality",
+      "started_at_utc": "2026-10-22T04:09:42.887597+00:00",
+      "completed_at_utc": "2026-10-22T04:10:20.363211+00:00",
+      "input_sha256": "d09228cc087090fdfabe07df542d7652a0834d0736714f5ebaf565981dc1f47d",
+      "prompt_sha256": "0efc63fa772cfb0cc631326b6cd844ce9fdb83f36c7f5b70a88e15b77ef9e5ef",
+      "response_sha256": "b684c9bd758065b2961e6222de107b09d5081d8888a860f084acb5cd96e992de",
+      "model_usage": {
+        "claude-fable-5-1": {
+          "inputTokens": 2,
+          "outputTokens": 2220,
+          "cacheReadInputTokens": 5328,
+          "cacheCreationInputTokens": 4370,
+          "webSearchRequests": 0,
+          "costUSD": 0.199752,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "thinkingTokens": 1668,
+          "canonicalModel": "claude-fable-5-1",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "is_error": false,
+      "process_exit_code": 0,
+      "grade_exit_code": 0,
+      "result": "제공된 두 문장을 점검 후보 표현 기준으로 검토하고, 수정본과 변경 기록을 정리하겠습니다.\n\n## 수정본\n\n파일 크기 제한 때문에 원본을 한 번에 올릴 수 없었다. 그래서 파일을 두 개로 나누어 보냈다.\n\n## 변경 기록\n\n| 유형 | before | after | 이유 | 상태 |\n|---|---|---|---|---|\n\n적용 0건, 보류 0건\n\n점검 메모는 다음과 같습니다.\n\n- **문장 앞 '그래서'는 보존했습니다.** 파일 크기 제한이라는 원인과 두 개로 나눠 보낸 행동의 인과를 드러냅니다.\n- **점검 후보 표현이 없었습니다.** 추상 해설, 대구 반복, 상투 마무리, 대시, 겹말 어느 것도 보이지 않았습니다.\n- **구체적인 사실만 담겨 있습니다.** 올리지 못한 이유, 나눈 개수, 보낸 행동이 모두 명시되어 있어 뜻이 흐려진 곳이 없습니다.\n- **코드 분석은 지시에 따라 생략했습니다.** 수치 비교는 제시하지 않습니다.\n\n원문은 동료가 읽기에 자연스러운 업무 기록으로 판단해 손대지 않았습니다. 원본 파일도 수정하지 않았습니다. 다음 단계는 저자가 이 후보에 0·1·2점과 근거 구절, 이유를 남기는 것입니다.",
+      "grader_output": "=== 03-causality — 03-causality.md [apply 모드] ===\n[분별] trap 보존 t1 — PASS\n[형식] 변경 기록 0행 (적용 0 · 보류 0) — 원문 동일·변경 없음 명시 PASS\n[문체] 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 프로그램 채점 전부 PASS\n",
+      "raw_file": "03-causality.raw.json",
+      "rechecked_grade_exit_code": 0,
+      "rechecked_grader_output": "=== 03-causality — 03-causality.md [apply 모드] ===\n[분별] trap 보존 t1 — PASS\n[형식] 변경 기록 0행 (적용 0 · 보류 0) — 원문 동일·변경 없음 명시 PASS\n[문체] 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 프로그램 채점 전부 PASS\n"
+    }
+  ],
+  "author_evaluation": null,
+  "completed_at_utc": "2026-10-22T04:10:20.364742+00:00",
+  "grader_sha256": "0c030bb783800c9bc272272a5b9edcdab4be93451d7969d3e158aa6f9cf8c853",
+  "execution_adapter": "tools-disabled text-only; code analysis is optional and explicitly skipped; expected files withheld",
+  "prior_attempt": "../2026-10-22-r62/manifest.json",
+  "all_program_checks_passed": true
+}

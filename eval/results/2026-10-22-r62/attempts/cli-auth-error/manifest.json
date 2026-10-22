@@ -1,0 +1,78 @@
+{
+  "run_id": "2026-10-22-r62",
+  "started_at_utc": "2026-10-22T04:06:40.398929+00:00",
+  "skill_version": "0.1.0",
+  "skill_sha256": "ab932eec7e7e5b4155ccf01b21c46a002983bf15d3ffa105f05942e09a13487a",
+  "cli_version": "2.1.303 (Claude Code)",
+  "command": [
+    "claude",
+    "-p",
+    "--safe-mode",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "blind_inputs": [
+    "SKILL.md",
+    "references/review-signals.md",
+    "references/signals.md",
+    "case input.md"
+  ],
+  "withheld": [
+    "expected.json",
+    "grade.py",
+    "program-fixtures/"
+  ],
+  "cases": [
+    {
+      "case": "01-repetition",
+      "started_at_utc": "2026-10-22T04:06:40.414137+00:00",
+      "completed_at_utc": "2026-10-22T04:06:44.044159+00:00",
+      "input_sha256": "ebd70b4890d97e050a1d47e8f41f037f616811f6205dade49fcec0f8d3a4ff52",
+      "prompt_sha256": "82e37e447d858a87cbae49bf1ac3097284209eb9283a681e71a39df1d6beefbb",
+      "response_sha256": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "model_usage": {},
+      "is_error": true,
+      "process_exit_code": 1,
+      "grade_exit_code": 1,
+      "result": "Not logged in · Please run /login",
+      "grader_output": "=== 01-repetition — 01-repetition.md [propose 모드] ===\n[탐지] recall 0/1 = 0.00 (기준 1.0) FAIL\n  - 놓침 p1: “처음 열어 처음으로” (겹말)\n[분별] trap 미등장 t1 — PASS\n[형식] 검토표 행 0건 — 표 없음(형식 위반?)\n[문체] after 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 요확인/실패 → recall\n",
+      "raw_file": "01-repetition.raw.json"
+    },
+    {
+      "case": "02-preserve",
+      "started_at_utc": "2026-10-22T04:06:44.046066+00:00",
+      "completed_at_utc": "2026-10-22T04:06:47.506096+00:00",
+      "input_sha256": "4a84af7dc6c9157fe7ae0c97da4fc60882ec7bad224c27627de06d5c25600915",
+      "prompt_sha256": "97c9d6a3e788b8eca9880cb490c1eefade54125deae620446022d1fb9e33c7b8",
+      "response_sha256": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "model_usage": {},
+      "is_error": true,
+      "process_exit_code": 1,
+      "grade_exit_code": 0,
+      "result": "Not logged in · Please run /login",
+      "grader_output": "=== 02-preserve — 02-preserve.md [propose 모드] ===\n[분별] trap 미등장 t1 — PASS\n[형식] 검토표 행 0건 — 표 없음(형식 위반?)\n[문체] after 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 프로그램 채점 전부 PASS\n",
+      "raw_file": "02-preserve.raw.json"
+    },
+    {
+      "case": "03-causality",
+      "started_at_utc": "2026-10-22T04:06:47.507873+00:00",
+      "completed_at_utc": "2026-10-22T04:06:51.175659+00:00",
+      "input_sha256": "d09228cc087090fdfabe07df542d7652a0834d0736714f5ebaf565981dc1f47d",
+      "prompt_sha256": "d3486bdfd42d02188bb53ea96aef5262dc9dfe7ed7ce73465702547790025ed2",
+      "response_sha256": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "model_usage": {},
+      "is_error": true,
+      "process_exit_code": 1,
+      "grade_exit_code": 0,
+      "result": "Not logged in · Please run /login",
+      "grader_output": "=== 03-causality — 03-causality.md [propose 모드] ===\n[분별] trap 미등장 t1 — PASS\n[형식] 검토표 행 0건 — 표 없음(형식 위반?)\n[문체] after 존댓말 전환 없음 — PASS\n[판정 필요] 원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다.\n결과: 프로그램 채점 전부 PASS\n",
+      "raw_file": "03-causality.raw.json"
+    }
+  ],
+  "author_evaluation": null,
+  "completed_at_utc": "2026-10-22T04:06:51.176185+00:00"
+}

@@ -1,6 +1,10 @@
 {
   "public_skill_version": "0.1.0",
-  "model_evals_run": false,
+  "model_evals_run": true,
+  "latest_run": "results/2026-10-22-r62-text-only/manifest.json",
+  "model": "claude-fable-5-1",
+  "cases_run": 3,
+  "program_checks_passed_cases": 3,
   "author_evaluation": null,
-  "meaning": "새 공개 패키지의 모델 효과는 아직 검증하지 않았다. program-fixtures는 채점기 테스트만 위한 고정 입력이다."
+  "meaning": "공개 가상 예문 3개를 실제 Claude CLI로 실행한 뒤 프로그램 검사에서 3/3 통과했다. 전체 문장 품질이나 저자 만족도 판정은 아니다. 첫 실행의 미완성 응답과 인증 오류는 성공으로 집계하지 않았다."
 }

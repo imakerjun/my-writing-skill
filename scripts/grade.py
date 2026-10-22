@@ -199,6 +199,8 @@ def main() -> int:
         # 3) 형식 — 검토표 존재 + 총 지적 건수
         rows = table_rows(result_raw)
         print(f"[형식] 검토표 행 {len(rows)}건" + (" — 표 없음(형식 위반?)" if not rows else ""))
+        if not rows:
+            failures.append("format")
         max_flags = thresholds.get("max_total_flags")
         if max_flags is not None and len(rows) > max_flags:
             print(f"[분별] 총 지적 {len(rows)}건 > 노이즈 상한 {max_flags} — FAIL")
