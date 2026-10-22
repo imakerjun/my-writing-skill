@@ -1,0 +1,22 @@
+{
+  "case": "02-preserve",
+  "description": "구체적인 위치 표현 보존",
+  "source": "공개 패키지용으로 새로 구성한 가상 예문. 기존 책 원고와 구분.",
+  "tone": "~한다",
+  "planted": [],
+  "traps": [
+    {
+      "id": "t1",
+      "span": "그 자리에는",
+      "match": "그 자리에는",
+      "reason": "원문의 사실·구체 위치·인과를 보호한다."
+    }
+  ],
+  "thresholds": {
+    "recall_min": null,
+    "max_trap_fp": 0
+  },
+  "judge_items": [
+    "원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다."
+  ]
+}

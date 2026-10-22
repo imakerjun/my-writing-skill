@@ -1,0 +1,6 @@
+{
+  "public_skill_version": "0.1.0",
+  "model_evals_run": false,
+  "author_evaluation": null,
+  "meaning": "새 공개 패키지의 모델 효과는 아직 검증하지 않았다. program-fixtures는 채점기 테스트만 위한 고정 입력이다."
+}

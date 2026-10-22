@@ -1,0 +1,4 @@
+interface:
+  display_name: "사람냄새 스킬"
+  short_description: "코드로 찾고, 뜻을 살려 고치고, 내 미감으로 평가"
+  default_prompt: "사람냄새 스킬로 내 초안을 퇴고해줘. 전할 뜻을 보존하고 후보 하나와 수정 이유를 보여준 뒤 내 평가를 기다려줘."

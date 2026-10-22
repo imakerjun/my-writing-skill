@@ -1,0 +1,11 @@
+{
+  "origin": "사람냄새 v2.3 / writing-signal-review",
+  "source_sha256": {
+    "people_skill": "e5b0b2c7c4e0fef9f6312b33df7fb956d41c20a59d0f4dcef5ac8f6024e373cc",
+    "grader": "ccd4caf99f162fe84b4b0c220f788fb52a9f8846dc1cd7745920487fa65f6dc0",
+    "analyzer": "4405c2c9bc8457c29ef86d6fc81ae54042f61f6ed01ab40105eb909394d58c2e"
+  },
+  "public_version": "0.1.0",
+  "model_eval_status": "not_run",
+  "program_tests": "8 unittest methods; program fixtures are not model outputs"
+}

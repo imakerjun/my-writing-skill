@@ -1,0 +1,22 @@
+{
+  "case": "03-causality",
+  "description": "접속어가 전하는 선택의 이유 보존",
+  "source": "공개 패키지용으로 새로 구성한 가상 예문. 기존 책 원고와 구분.",
+  "tone": "~한다",
+  "planted": [],
+  "traps": [
+    {
+      "id": "t1",
+      "span": "그래서 파일을 두 개로 나누어 보냈다.",
+      "match": "그래서 파일을 두 개로 나누어 보냈다.",
+      "reason": "원문의 사실·구체 위치·인과를 보호한다."
+    }
+  ],
+  "thresholds": {
+    "recall_min": null,
+    "max_trap_fp": 0
+  },
+  "judge_items": [
+    "원뜻과 문체가 보존됐는지 문맥으로 따로 확인한다."
+  ]
+}
