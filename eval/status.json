@@ -1,10 +1,11 @@
 {
-  "public_skill_version": "0.1.0",
-  "model_evals_run": true,
+  "public_skill_version": "0.2.0",
+  "model_evals_run": false,
   "latest_run": "results/2026-10-22-r62-text-only/manifest.json",
   "model": "claude-fable-5-1",
   "cases_run": 3,
   "program_checks_passed_cases": 3,
   "author_evaluation": null,
-  "meaning": "공개 가상 예문 3개를 실제 Claude CLI로 실행한 뒤 프로그램 검사에서 3/3 통과했다. 전체 문장 품질이나 저자 만족도 판정은 아니다. 첫 실행의 미완성 응답과 인증 오류는 성공으로 집계하지 않았다."
+  "meaning": "보존된 최근 모델 실행은 v0.1.0의 공개 가상 예문 3건이며 프로그램 검사 3/3 통과다. 현재 v0.2.0의 개인 기준 축적 변경에 대한 새 모델 실행은 아직 없다. 저자 미감 평가는 별도다.",
+  "evaluated_skill_version": "0.1.0"
 }

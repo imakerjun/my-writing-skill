@@ -11,7 +11,9 @@ def main():
     p.add_argument('--home',type=Path,default=Path.home(),help=argparse.SUPPRESS)
     p.add_argument('--uninstall',action='store_true')
     a=p.parse_args();source=Path(__file__).resolve().parent
-    target=a.home/('.codex'if a.target=='codex'else'.claude')/'skills'/'saramnaemsae'
+    skills=a.home/('.codex'if a.target=='codex'else'.claude')/'skills'
+    target=skills/'my-writing-skill'
+    legacy=skills/'saramnaemsae'
     exists=target.exists()or target.is_symlink()
     same=target.is_symlink()and target.resolve()==source
     if a.uninstall:
@@ -22,8 +24,11 @@ def main():
         if exists and not same:sys.exit('기존 스킬을 덮어쓰지 않았습니다: '+str(target))
         target.parent.mkdir(parents=True,exist_ok=True)
         if not same:target.symlink_to(source,target_is_directory=True)
+        if legacy.is_symlink() and legacy.resolve()==source:
+            legacy.unlink()
+            print('이 저장소의 이전 설치 링크를 새 이름으로 옮겼습니다.')
         print('설치됨: '+str(target))
-        print('새 대화에서 $saramnaemsae 로 요청하세요.'if a.target=='codex'else'새 대화에서 /saramnaemsae 로 요청하세요.')
+        print('새 대화에서 $my-writing-skill 로 요청하세요.'if a.target=='codex'else'새 대화에서 /my-writing-skill 로 요청하세요.')
 
 
 if __name__=='__main__':main()

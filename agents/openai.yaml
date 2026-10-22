@@ -1,4 +1,4 @@
 interface:
-  display_name: "사람냄새 스킬"
-  short_description: "코드로 찾고, 뜻을 살려 고치고, 내 미감으로 평가"
-  default_prompt: "사람냄새 스킬로 내 초안을 퇴고해줘. 전할 뜻을 보존하고 후보 하나와 수정 이유를 보여준 뒤 내 평가를 기다려줘."
+  display_name: "My Writing Skill · 내 글의 기준"
+  short_description: "내 점수와 이유로 글쓰기 지침과 미감을 다듬는 스킬"
+  default_prompt: "내 초안의 뜻과 말투를 살려 후보 하나를 보여줘. 내가 0·1·2점과 이유를 남기면, 다음 지침과 eval 질문으로 옮기고 다른 문단에서 다시 확인하자."

@@ -47,7 +47,7 @@ class Tools(unittest.TestCase):
     def test_installer_idempotence_and_uninstall(self):
         for target,config in [('codex','.codex'),('claude','.claude')]:
             with self.subTest(target=target),tempfile.TemporaryDirectory()as d:
-                dest=Path(d)/config/'skills/saramnaemsae'
+                dest=Path(d)/config/'skills/my-writing-skill'
                 self.assertEqual(run('install.py',target,'--home',d).returncode,0)
                 self.assertTrue(dest.is_symlink());self.assertEqual(dest.resolve(),ROOT)
                 self.assertEqual(run('install.py',target,'--home',d).returncode,0)
@@ -56,11 +56,26 @@ class Tools(unittest.TestCase):
 
     def test_installer_preserves_existing_skill(self):
         with tempfile.TemporaryDirectory()as d:
-            dest=Path(d)/'.codex/skills/saramnaemsae';dest.mkdir(parents=True);(dest/'keep.md').write_text('keep')
+            dest=Path(d)/'.codex/skills/my-writing-skill';dest.mkdir(parents=True);(dest/'keep.md').write_text('keep')
             self.assertNotEqual(run('install.py','codex','--home',d).returncode,0)
             self.assertEqual((dest/'keep.md').read_text(),'keep')
             self.assertNotEqual(run('install.py','codex','--home',d,'--uninstall').returncode,0)
             self.assertTrue((dest/'keep.md').exists())
+
+    def test_installer_migrates_only_own_legacy_link(self):
+        with tempfile.TemporaryDirectory() as d:
+            skills=Path(d)/'.codex/skills';skills.mkdir(parents=True)
+            legacy=skills/'saramnaemsae';legacy.symlink_to(ROOT,target_is_directory=True)
+            self.assertEqual(run('install.py','codex','--home',d).returncode,0)
+            self.assertFalse(legacy.is_symlink())
+            self.assertEqual((skills/'my-writing-skill').resolve(),ROOT)
+
+    def test_installer_keeps_foreign_legacy_skill(self):
+        with tempfile.TemporaryDirectory() as d:
+            legacy=Path(d)/'.codex/skills/saramnaemsae';legacy.mkdir(parents=True)
+            (legacy/'keep.md').write_text('keep')
+            self.assertEqual(run('install.py','codex','--home',d).returncode,0)
+            self.assertEqual((legacy/'keep.md').read_text(),'keep')
 
     def test_rating_requires_real_span_and_preserves_reason(self):
         with tempfile.TemporaryDirectory()as d:
