@@ -1,5 +1,5 @@
 {
-  "public_skill_version": "0.3.0",
+  "public_skill_version": "0.3.1",
   "model_evals_run": false,
   "latest_attempt": "results/2026-10-22-v030-attempt/manifest.json",
   "latest_attempt_status": "blocked_before_model_response",
@@ -15,5 +15,13 @@
     "passed": 19,
     "scope": "code contracts, personal-skill generation and relocation, installers, grading fixtures; not model quality"
   },
-  "meaning": "v0.3.0 새 모델 실행은 Claude CLI 미로그인으로 응답을 받지 못했다. 보존한 성공 모델 실행은 v0.1.0 가상 예문 3건이다. v0.3.0 프로그램 검사 19건은 통과했다. 개인 지침의 새 문단 적용·실제 미감 평가는 별도다."
+  "meaning": "v0.3.1의 첫 대화와 모의 피드백 응답을 독립 에이전트로 확인했다. 현재 버전의 고정 예문 3건에 대한 모델 실행·자동채점과 실제 저자 평가는 하지 않았다. 과거 성공 모델 평가 기록은 v0.1.0의 가상 예문 3건이며, v0.3.1 프로그램 검사 19건은 통과했다.",
+  "model_evals_scope": "Three fixed edit cases with program grading for the current skill version; conversation tryouts are recorded separately.",
+  "conversation_tryout": {
+    "manifest": "results/2026-10-27-first-conversation/manifest.json",
+    "responses_received": 2,
+    "feedback": "simulated",
+    "human_rating": null,
+    "quality_grade": null
+  }
 }

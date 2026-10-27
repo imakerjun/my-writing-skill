@@ -9,7 +9,7 @@ import shutil
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.3.0'
+VERSION = '0.3.1'
 
 
 def now():
@@ -132,6 +132,10 @@ def build(args):
         shutil.copyfile(ROOT / 'scripts' / file, destination / 'scripts' / file)
     for file in ['signals.md', 'review-signals.md', 'reader-review.md']:
         shutil.copyfile(ROOT / 'references' / file, destination / 'references' / file)
+    conversation = (ROOT / 'references/first-session.md').read_text(encoding='utf-8')
+    conversation = conversation.replace('자세한 명령은 [기록 안내](feedback-loop.md)를 읽는다.',
+                                        '실제 정수 점수와 이유는 이 스킬의 `scripts/record_rating.py`로 기록한다.')
+    (destination / 'references/first-session.md').write_text(conversation, encoding='utf-8')
     shutil.copyfile(ROOT / 'eval/judge-rubric.md', destination / 'eval/judge-rubric.md')
     shutil.copyfile(ROOT / 'install.py', destination / 'install.py')
     shutil.copyfile(ROOT / 'LICENSE', destination / 'LICENSE')
@@ -153,7 +157,11 @@ metadata:
 
 # {name} · 내 글쓰기 스킬
 
-이 스킬은 저자가 확인한 {len(confirmed)}개 지침으로 시작한다. 코드가 신호를 찾고, LLM과 뜻을 다듬고, 저자가 미감으로 판단한다.
+이 스킬은 저자가 확인한 {len(confirmed)}개 지침으로 시작한다. 코드가 자꾸 고치는 표현을 찾고, LLM이 앞뒤를 읽으며 고친다. 저자는 내 글에 쓰고 싶은지 읽고 판단한다.
+
+## 대화할 때
+
+먼저 [첫 대화와 피드백 말투](references/first-session.md)를 읽는다. 편한 존댓말로 이야기하되, 고친 원고의 말투는 사용자 요청을 따른다. 목적이 이미 보이면 소개나 설문 대신 후보 한 문단부터 보여준다. 필요한 질문 하나만 하고, 칭찬을 반복하기보다 사용자가 짚은 구절을 어떻게 고칠지 말한다. 점수의 뜻은 처음에만 짧게 안내하고 사용자의 답을 기다린다.
 
 ## 이번 글부터 확인한다
 
