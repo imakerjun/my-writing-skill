@@ -1,5 +1,5 @@
 {
-  "public_skill_version": "0.3.1",
+  "public_skill_version": "0.4.0",
   "model_evals_run": false,
   "latest_attempt": "results/2026-10-22-v030-attempt/manifest.json",
   "latest_attempt_status": "blocked_before_model_response",
@@ -11,11 +11,11 @@
   "author_evaluation": null,
   "program_tests": {
     "command": "python3 -m unittest discover -s tests -v",
-    "tests": 19,
-    "passed": 19,
-    "scope": "code contracts, personal-skill generation and relocation, installers, grading fixtures; not model quality"
+    "tests": 25,
+    "passed": 25,
+    "scope": "code contracts; three-skill generation, relocation, both installers, expression calibration, persona provenance and cache checks; not model quality"
   },
-  "meaning": "v0.3.1의 첫 대화와 모의 피드백 응답을 독립 에이전트로 확인했다. 현재 버전의 고정 예문 3건에 대한 모델 실행·자동채점과 실제 저자 평가는 하지 않았다. 과거 성공 모델 평가 기록은 v0.1.0의 가상 예문 3건이며, v0.3.1 프로그램 검사 19건은 통과했다.",
+  "meaning": "v0.4.0은 세 스킬 생성·독립 설치와 표현 판단·페르소나 파일·캐시 계약을 포함한 프로그램 검사 25건을 통과했다. 출시 전 생성물 세 개를 독립 에이전트로 실행해 역할별 첫 응답을 관찰했으며 실제 저자 평가는 없다. 고정 예문 3건에 대한 현재 버전의 전체 모델 평가·자동채점은 하지 않았다. 과거의 v0.1.0 성공 기록과 구분한다.",
   "model_evals_scope": "Three fixed edit cases with program grading for the current skill version; conversation tryouts are recorded separately.",
   "conversation_tryout": {
     "manifest": "results/2026-10-27-first-conversation/manifest.json",
@@ -23,5 +23,11 @@
     "feedback": "simulated",
     "human_rating": null,
     "quality_grade": null
+  },
+  "creator_tryout": {
+    "manifest": "results/2026-10-27-three-skills/manifest.json",
+    "independent_generated_skills_tried": 3,
+    "human_rating": null,
+    "automated_quality_grade": null
   }
 }

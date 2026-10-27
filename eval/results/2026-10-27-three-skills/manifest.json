@@ -1,0 +1,64 @@
+{
+  "creator_version": "0.4.0",
+  "scope": "pre-release generated skills: independent first-use responses; not human quality scores or full fixed-case grading",
+  "program_tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "passed": 25,
+    "total": 25
+  },
+  "generated_skills": [
+    "my-writing-expressions",
+    "my-writing-core",
+    "my-writing-readers"
+  ],
+  "generation_and_installation": "Each generated skill relocated and installed into isolated Codex and Claude homes in program tests.",
+  "dataset": {
+    "id": "nvidia/Nemotron-Personas-Korea",
+    "revision": "ada0f5b53a38bb5a30cce09358adde883c1ab63a",
+    "cached_shards": 9,
+    "new_dataset_download": false,
+    "trial_row_id": "a9ca89ab91e143e8a06d568483c1b660",
+    "used_fields_count": 23,
+    "license": "CC BY 4.0",
+    "source_url": "https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea",
+    "raw_selected_profiles_published": false
+  },
+  "trials": [
+    {
+      "mode": "expressions",
+      "executor": "independent Codex collaboration agent",
+      "input": "회의는 서로의 성장을 확인하는 자리가 되었다. 우리는 이 자리에서 각자의 여정을 돌아봤다. 회의가 끝나면 의자를 제자리에 놓았다.",
+      "observed": "Analyzer executed before and after editing. Reported 3 literal 자리 matches including 제자리, and 1 여정 match. Kept the concrete 제자리; produced one candidate and asked for a rating.",
+      "human_rating": null,
+      "quality_grade": null
+    },
+    {
+      "mode": "core",
+      "executor": "independent Codex collaboration agent",
+      "input": "새 동료에게 도구를 안내한다. 설명을 처음부터 다 읽기보다 계정 화면에서 자기 연락처를 바꿔보게 하고 싶다. 메모: 직접 써봐야 배운다.",
+      "observed": "Read the current brief and empty confirmed-rule profile, wrote one paragraph, asked for the author score and reason, and did not create user feedback.",
+      "human_rating": null,
+      "quality_grade": null
+    },
+    {
+      "mode": "readers",
+      "executor": "independent Codex collaboration agent using a real cached Nemotron row",
+      "input": "도구 설명을 처음부터 다 읽을 필요는 없어요. 먼저 계정 화면을 열어서 본인 연락처 하나만 바꿔보세요.",
+      "reader_question": "이미 맞게 등록된 연락처라면 무엇으로 바꾸라는 뜻인지 모르겠습니다.",
+      "observed": "Used all 23 exported fields, summarized the text, quoted a strength, and raised a concrete ambiguity. No author adoption or score was generated.",
+      "human_rating": null,
+      "quality_grade": null
+    }
+  ],
+  "generated_skill_sha256": {
+    "expressions": "348946dc7e49938ab85c43e346a60b34d1bf83c06d4e0824fa09c85ba5171b26",
+    "core": "1b1b8fd44a54091c74ec2a508d99afa11cf53b1168cc4d18e1dc1b956dd86d39",
+    "readers": "8aa8e77d3ba33fe18688fb6d72301cafcde315f9950576fb46a33fed98172fba"
+  },
+  "publication_note": "Selected raw personas and private workspaces are excluded; the reader response is a synthetic role response, not a real person review.",
+  "release_templates_sha256": {
+    "readers.md": "1c81fcefa3886b40c92045c3beeb91d418c07440ce86c5f1864167591c824aab",
+    "core.md": "a35a9ac60adb7339db963f671e547033afc5b779034fbff47d6132f110832bc0",
+    "expressions.md": "099e51f7e75b8e33770c840058102eb3b6e73e909a091870dcb1e4ad6c65f2f3"
+  }
+}

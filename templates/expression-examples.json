@@ -1,0 +1,11 @@
+{
+  "source": "starter examples written for this tool; not author ratings or AI-authorship evidence",
+  "watch": ["리듬", "매듭", "여정", "켜켜이", "자리", "무엇인가"],
+  "examples": [
+    {"id": "e01", "term": "여정", "scope": "팀의 작업을 소개하는 글", "text": "이번 프로젝트는 우리가 함께 성장하는 여정이었습니다."},
+    {"id": "e02", "term": "자리", "scope": "회고 모임의 목적을 설명하는 글", "text": "회고는 서로의 성장을 확인하는 자리가 되었습니다."},
+    {"id": "e03", "term": "자리", "scope": "회의실 이용 안내", "text": "회의가 끝나면 의자를 제자리에 놓아주세요."},
+    {"id": "e04", "term": "리듬", "scope": "글쓰기를 설명하는 글", "text": "문장의 리듬을 조율하며 글의 깊이를 더했습니다."},
+    {"id": "e05", "term": "그래서", "scope": "원인과 행동을 설명하는 글", "text": "회의 시간이 겹쳤다. 그래서 오후 회의를 한 시간 미뤘다."}
+  ]
+}

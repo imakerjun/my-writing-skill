@@ -47,6 +47,9 @@ def analyze(text, config=None):
         if lead:
             connectives.append({'sentence': index, 'expression': lead.group(1)})
         row['expression_candidates'] = [term for term in candidates if term in sentence]
+        row['expression_occurrences'] = [{'term': term, 'count': sentence.count(term),
+                                          'offsets': [m.start() for m in re.finditer(re.escape(term), sentence)]}
+                                         for term in row['expression_candidates']]
         row['preserve_candidates'] = [term for term in preserve if term in sentence]
         for token in re.findall(r'[가-힣A-Za-z0-9]+', sentence):
             terms[token].append(index)
@@ -58,6 +61,7 @@ def analyze(text, config=None):
         'input_sha256': hashlib.sha256(text.encode('utf-8')).hexdigest(),
         'definitions': {'chars': 'Unicode code points; no readability threshold', 'eojeol': 'whitespace-separated units, not English words or morphemes', 'connectives': 'listed sentence-initial expressions only; not all Korean connective endings', 'boundaries': 'paragraph and punctuation heuristic; check abbreviations and quotations manually', 'repetition': 'exact surface tokens; morphology not normalized', 'policy': 'signals_only_no_quality_score'},
         'summary': {'sentences': len(rows), 'paragraphs': len(set(r['paragraph'] for r in rows)), 'mean_chars_with_spaces': round(sum(lengths)/len(lengths), 1) if lengths else 0, 'max_chars_with_spaces': max(lengths, default=0), 'leading_connectives': len(connectives), 'expression_candidates': sum(len(r['expression_candidates']) for r in rows)},
+        'expression_occurrences': sum(item['count'] for row in rows for item in row['expression_occurrences']),
         'longest_sentences': [r['id'] for r in sorted(rows, key=lambda r: (-r['chars_with_spaces'], r['id']))[:3]],
         'connectives': connectives,
         'repeated_surface_tokens': [{'token': token, 'count': len(locations), 'sentences': locations} for token, locations in sorted(terms.items(), key=lambda item: (-len(item[1]), item[0])) if len(locations) >= 3],
